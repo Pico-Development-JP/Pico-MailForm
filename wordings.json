@@ -1,0 +1,6 @@
+{
+  "error_expires_form": "Form is expired. Please fill out the form again.",
+  "error_name_is_required": "Please enter the name.",
+  "error_mail_is_invalid": "E-mail address is not the correct e-mail address. Please re-enter.",
+  "error_content_is_required": "Please enter the content."
+}

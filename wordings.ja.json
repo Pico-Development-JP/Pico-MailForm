@@ -1,0 +1,6 @@
+{
+  "error_expires_form": "フォームの有効期限が切れています。お手数ですが再度フォームに記入してください。",
+  "error_name_is_required": "名前を入力してください。",
+  "error_mail_is_invalid": "メールアドレスが正しいメールアドレスではありません。入力しなおしてください。",
+  "error_content_is_required": "内容を入力してください。"
+}
