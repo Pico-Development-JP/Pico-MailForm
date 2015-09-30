@@ -16,7 +16,7 @@ Pico Plugin:メールフォームを作成、メールを送信する
  
 ### メールフォームテンプレートの例
 
-```php
+```html
 <section class="card" id="inquiry">
   {% if not mailform.errors is empty %}
     <div class="errorinfo">
