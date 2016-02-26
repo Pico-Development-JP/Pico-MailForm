@@ -8,7 +8,9 @@
  * @license http://opensource.org/licenses/MIT
  * @version 1.0
  */
-class Pico_MailForm {
+class Pico_MailForm extends AbstractPicoPlugin {
+
+  protected $enabled = false;
 
   private $config;
   
@@ -96,7 +98,7 @@ class Pico_MailForm {
     }
   }
   
-  public function plugins_loaded()
+  public function onPluginsLoaded()
   {
     session_name('ContactForm');
     @session_start();
@@ -105,19 +107,19 @@ class Pico_MailForm {
     }
   }
 
-  public function config_loaded(&$settings)
+  public function onConfigLoaded(&$config)
   {
     $this->config = array(
       'To'      => 'mail@example.com',
       'Title'   => 'Inquiry Mail',
       'Charset' => 'ISO-2022-JP-MS',
     );
-    if(isset($settings['mailform'])){
-      $this->config = $settings['mailform'] + $this->config;
+    if(isset($config['mailform'])){
+      $this->config = $config['mailform'] + $this->config;
     }
   }
   
-  public function before_render(&$twig_vars, &$twig, &$template)
+  public function onPageRendering(Twig_Environment &$twig, array &$twigVariables, &$templateName)
   {
     $form = array();
     /* 変数の初期化 */
@@ -193,7 +195,7 @@ class Pico_MailForm {
       array($token = sha1(mt_rand()) => true) + $_SESSION['token'], 0, 10);
 
     $form["token"] = $token;
-    $twig_vars["mailform"] = $form;
+    $twigVariables["mailform"] = $form;
   }
 
 }
